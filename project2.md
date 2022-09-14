@@ -4,19 +4,27 @@ Fork & Clone this repo.
 
 ## Part 1
 
-- [ ] Review the [Project 2 requirements](https://romebell.gitbook.io/seirfx-621/projects/project-2)
+- [x] Review the [Project 2 requirements](https://romebell.gitbook.io/seirfx-621/projects/project-2)
 
-- [ ] Check out some [examples](https://romebell.gitbook.io/seirfx-621/projects/past-projects/project2)
+- [x] Check out some [examples](https://romebell.gitbook.io/seirfx-621/projects/past-projects/project2)
 
-- [ ] In this space below, list **THREE** ideas for your Project 2. For each idea, include [user stories](https://www.atlassian.com/agile/project-management/user-stories) for each idea and a link to the API(s) you want to use for it.
+- [x] In this space below, list **THREE** ideas for your Project 2. For each idea, include [user stories](https://www.atlassian.com/agile/project-management/user-stories) for each idea and a link to the API(s) you want to use for it.
 
 --------------------------------------------------------
-1. 
-2. 
-3.
+1. Song Search 
+    API: https://rapidapi.com/brianiswu/api/genius/
+    User Story:  As a music lover
+                 I want to be able to find songs based on the lyrics or song names
+                 So that I can find songs easily and keep track of my favorite songs.
+2. Football Frenzy 
+    API: https://rapidapi.com/api-sports/api/api-football/
+    User Story: As a football fan
+                I want to be able to find all the latest news and stats on teams
+                So that I can stay up to date with the season
+
 ---------------------------------------------------------
 
-- [ ] Make a PR when you're done!
+- [x] Make a PR when you're done!
 
 ---
 
@@ -32,6 +40,10 @@ In the space below:
 
 ----------------------------------------------------------
 ### User Stories
+
+    As a music lover,
+    I want to be able to find songs based on the lyrics or song names
+    So that I can find songs easily and keep track of my favorite songs.
 
 ----------------------------------------------------------
 ### Wireframes
