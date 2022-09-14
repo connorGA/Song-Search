@@ -36,11 +36,18 @@ app.use((req, res, next) => {
   next();
 })
 
-// GET / -main index of site
-const rapidAPIHost = 'https://genius.p.rapidapi.com';
+
+// const rapidAPIHost = 'https://genius.p.rapidapi.com';
 const APIKey = process.env.API_KEY
 
+// GET / -main index of site
 app.get('/', (req, res) => {
+  res.render('index');
+});
+
+
+// GET / search / retrieving from API
+app.get('/search', (req, res) => {
 
   const options = {
     method: 'GET',
@@ -56,11 +63,15 @@ app.get('/', (req, res) => {
     console.log(response.data);
     console.log('*********connected to API***********')
   }).catch(function (error) {
-    console.error(error);
+    console.error('There was an error retrieving response from API', error);
   });
 
-  res.render('index');
-})
+  res.render('search');
+});
+
+
+
+
 
 //access to all of our auth routes GET /auth/login, GET /auth/signup, POST routes
 app.use('/auth', require('./controllers/auth'));
