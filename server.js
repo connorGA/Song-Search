@@ -6,6 +6,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
+const axios = require('axios');
 
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log('yoooooooo.....', SECRET_SESSION);
@@ -35,7 +36,29 @@ app.use((req, res, next) => {
   next();
 })
 
+// GET / -main index of site
+const rapidAPIHost = 'https://genius.p.rapidapi.com';
+const APIKey = process.env.API_KEY
+
 app.get('/', (req, res) => {
+
+  const options = {
+    method: 'GET',
+    url: 'https://genius.p.rapidapi.com/search',
+    params: {q: 'Kendrick Lamar'},
+    headers: {
+      'X-RapidAPI-Key': '4ef418d910msh462b483552e3c94p1e9cbdjsn48aaf4f4d6e7',
+      'X-RapidAPI-Host': 'genius.p.rapidapi.com'
+    }
+  };
+  
+  axios.request(options).then(function (response) {
+    console.log(response.data);
+    console.log('*********connected to API***********')
+  }).catch(function (error) {
+    console.error(error);
+  });
+
   res.render('index');
 })
 
@@ -47,6 +70,10 @@ app.get('/profile', isLoggedIn, (req, res) => {
   const { id, name, email } = req.user.get(); 
   res.render('profile', { id, name, email });
 });
+
+
+
+
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
