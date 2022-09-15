@@ -71,6 +71,12 @@ app.get('/search', (req, res) => {
 });
 
 
+//GET results route
+app.get('/results', (req, res) => {
+  res.render('results');
+});
+
+
 
 
 
