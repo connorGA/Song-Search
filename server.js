@@ -49,22 +49,10 @@ app.get('/', (req, res) => {
 // GET / search / retrieving from API
 app.get('/search', (req, res) => {
 
-  const type = req.query.type;
-  const songTitle = req.query.full_title;
-  const image = req.query.song_art_image_url;
-  const lyrics = req.query.lyrics_owner_id;
-  const features = req.query.featured_artists;
-
   const options = {
     method: 'GET',
     url: 'https://genius.p.rapidapi.com/search',
-    params: {
-      type: type,
-      title: songTitle,
-      image: image,
-      lyrics: lyrics,
-      features: features
-    },
+    params: {q: 'Kendrick Lamar'},
     headers: {
       'X-RapidAPI-Key': '4ef418d910msh462b483552e3c94p1e9cbdjsn48aaf4f4d6e7',
       'X-RapidAPI-Host': 'genius.p.rapidapi.com'
@@ -72,7 +60,7 @@ app.get('/search', (req, res) => {
   };
   
   axios.request(options).then(function (response) {
-    response.data = JSON.stringify(response.data)     //breaks up objects that were returning in response.data.... maybe use this info to figure out how to manipulate data coming back
+    // response.data = JSON.stringify(response.data)     //breaks up objects that were returning in response.data.... maybe use this info to figure out how to manipulate data coming back
     console.log(response.data);
     console.log('*********connected to API***********')
   }).catch(function (error) {
