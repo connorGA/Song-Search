@@ -7,6 +7,7 @@ const flash = require('connect-flash');
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const axios = require('axios');
+const { response } = require('express');
 
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log('yoooooooo.....', SECRET_SESSION);
@@ -49,10 +50,16 @@ app.get('/', (req, res) => {
 // GET / search / retrieving from API
 app.get('/search', (req, res) => {
 
-  const options = {
+  res.render('search');
+});
+
+
+//GET results route / will render search data here
+app.get('/results', (req, res) => {
+    const options = {
     method: 'GET',
     url: 'https://genius.p.rapidapi.com/search',
-    params: {q: 'Kendrick Lamar'},
+    params: {q: req.query},
     headers: {
       'X-RapidAPI-Key': '4ef418d910msh462b483552e3c94p1e9cbdjsn48aaf4f4d6e7',
       'X-RapidAPI-Host': 'genius.p.rapidapi.com'
@@ -61,18 +68,14 @@ app.get('/search', (req, res) => {
   
   axios.request(options).then(function (response) {
     // response.data = JSON.stringify(response.data)     //breaks up objects that were returning in response.data.... maybe use this info to figure out how to manipulate data coming back
+    console.log(req.query)
     console.log(response.data);
     console.log('*********connected to API***********')
   }).catch(function (error) {
     console.error('There was an error retrieving response from API', error);
   });
 
-  res.render('search');
-});
 
-
-//GET results route / will render search data here
-app.get('/results', (req, res) => {
   res.render('results');
 });
 
