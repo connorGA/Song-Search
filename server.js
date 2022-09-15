@@ -71,7 +71,7 @@ app.get('/search', (req, res) => {
 });
 
 
-//GET results route
+//GET results route / will render search data here
 app.get('/results', (req, res) => {
   res.render('results');
 });
