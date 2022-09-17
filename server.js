@@ -8,6 +8,8 @@ const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const axios = require('axios');
 const { response } = require('express');
+const db = require('./models');
+// let favorite = db.favorite
 
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log('yoooooooo.....', SECRET_SESSION);
@@ -43,6 +45,7 @@ const APIKey = process.env.API_KEY
 
 // GET / -main index of site
 app.get('/', (req, res) => {
+  
   res.render('index');
 });
 

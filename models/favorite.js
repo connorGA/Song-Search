@@ -14,9 +14,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   favorite.init({
-    favSong: DataTypes.STRING,
+    title: DataTypes.STRING,
     album: DataTypes.STRING,
-    artist: DataTypes.STRING
+    artist: DataTypes.STRING,
+    imageURL: DataTypes.STRING,
+    lyrics: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'favorite',

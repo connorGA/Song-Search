@@ -115,11 +115,11 @@ const { response } = require('express');
 //create some favSongs with async/await syntax
 async function createFavoriteSong() {
     try {
-      const newFavoriteSong = await db.favorite.create({ favSong: 'Nikes' })
-      console.log('the new FavoriteSong is:', newFavoriteSong)
+      const newFavoriteSong = await db.favorite.create({ title: 'Nikes', album: 'Blonde', artist: 'Frank Ocean'})
+      console.log('My new Favorite Song is:', newFavoriteSong)
       const foundFavoriteSong = await db.favorite.findOne({
         where: {
-          favSong: 'Nikes'
+          title: 'Nikes'
         }
       })
       console.log('the found FavoriteSong is:', foundFavoriteSong)
@@ -128,4 +128,4 @@ async function createFavoriteSong() {
     }
   }
   
-  createFavoriteSong()
+  createFavoriteSong();
