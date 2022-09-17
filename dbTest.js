@@ -112,20 +112,38 @@ const { response } = require('express');
 //   console.log('Found: ', song.favSong)
 // })
 
-//create some favSongs with async/await syntax
-async function createFavoriteSong() {
+// //create some favSongs with async/await syntax
+// async function createFavoriteSong() {
+//     try {
+//       const newFavoriteSong = await db.favorite.create({ title: 'Nikes', album: 'Blonde', artist: 'Frank Ocean'})
+//       console.log('My new Favorite Song is:', newFavoriteSong)
+//       const foundFavoriteSong = await db.favorite.findOne({
+//         where: {
+//           title: 'Nikes'
+//         }
+//       })
+//       console.log('the found FavoriteSong is:', foundFavoriteSong)
+//     } catch (err) {
+//       console.log(err)
+//     }
+//   }
+  
+//   createFavoriteSong();
+
+
+  async function createDislikedSong() {
     try {
-      const newFavoriteSong = await db.favorite.create({ title: 'Nikes', album: 'Blonde', artist: 'Frank Ocean'})
-      console.log('My new Favorite Song is:', newFavoriteSong)
-      const foundFavoriteSong = await db.favorite.findOne({
+      const newDislikedSong = await db.dislike.create({ title: 'Gucci Gang', artist: 'Lil Pump'})
+      console.log('My new Disliked Song is:', newDislikedSong)
+      const foundDislikedSong = await db.dislike.findOne({
         where: {
-          title: 'Nikes'
+          title: 'Gucci Gang'
         }
       })
-      console.log('the found FavoriteSong is:', foundFavoriteSong)
+      console.log('the found DislikedSong is:', foundDislikedSong)
     } catch (err) {
       console.log(err)
     }
   }
   
-  createFavoriteSong();
+  createDislikedSong();
