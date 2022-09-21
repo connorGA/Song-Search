@@ -64,22 +64,23 @@ app.get('/results', (req, res) => {
     url: 'https://genius.p.rapidapi.com/search',
     params: {q: req.query},
     headers: {
-      'X-RapidAPI-Key': '4ef418d910msh462b483552e3c94p1e9cbdjsn48aaf4f4d6e7',
+      'X-RapidAPI-Key': process.env.API_KEY,
       'X-RapidAPI-Host': 'genius.p.rapidapi.com'
     }
   };
   
   axios.request(options).then(function (response) {
     // response.data = JSON.stringify(response.data)     //breaks up objects that were returning in response.data.... maybe use this info to figure out how to manipulate data coming back
-    console.log(req.query)
-    console.log(response.data);
+    console.log(req.query);
+    console.log('this is string' , response.data.response.hits);
     console.log('*********connected to API***********')
+    res.render('results', {hits: response.data.response.hits});
   }).catch(function (error) {
     console.error('There was an error retrieving response from API', error);
   });
 
 
-  res.render('results');
+
 });
 
 
