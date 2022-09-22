@@ -131,19 +131,36 @@ const { response } = require('express');
 //   createFavoriteSong();
 
 
-  async function createDislikedSong() {
-    try {
-      const newDislikedSong = await db.dislike.create({ title: 'Gucci Gang', artist: 'Lil Pump'})
-      console.log('My new Disliked Song is:', newDislikedSong)
-      const foundDislikedSong = await db.dislike.findOne({
-        where: {
-          title: 'Gucci Gang'
-        }
-      })
-      console.log('the found DislikedSong is:', foundDislikedSong)
-    } catch (err) {
-      console.log(err)
-    }
-  }
+  // async function createDislikedSong() {
+  //   try {
+  //     const newDislikedSong = await db.dislike.create({ title: 'Gucci Gang', artist: 'Lil Pump'})
+  //     console.log('My new Disliked Song is:', newDislikedSong)
+  //     const foundDislikedSong = await db.dislike.findOne({
+  //       where: {
+  //         title: 'Gucci Gang'
+  //       }
+  //     })
+  //     console.log('the found DislikedSong is:', foundDislikedSong)
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
   
-  createDislikedSong();
+  // createDislikedSong();
+
+
+  db.user.findOne({
+    where: {
+      name: 'Connor Cappello'
+    }
+  })
+  .then(user => {
+    console.log('adding fav song to this user:', user.name)
+    user.createFavorite({
+      title: 'Chiasma',
+      album: 'Let the Sun Talk',
+      artist: 'Mavi'
+    }).then(song => {
+      console.log(song);
+    });
+  });

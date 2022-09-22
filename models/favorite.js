@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.favorite.belongsTo(models.user)
     }
   }
   favorite.init({
@@ -18,7 +19,9 @@ module.exports = (sequelize, DataTypes) => {
     album: DataTypes.STRING,
     artist: DataTypes.STRING,
     imageURL: DataTypes.STRING,
-    lyrics: DataTypes.STRING
+    lyrics: DataTypes.STRING,
+    userId: DataTypes.INTEGER,
+    
   }, {
     sequelize,
     modelName: 'favorite',
