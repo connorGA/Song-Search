@@ -5,4 +5,14 @@
     <button type="submit">Back to Search</button>
   </form>
 
-<p><%= hits %> </p>
+
+  <% hits.forEach((hits) => { %>
+    <h2><%= hits.result.full_title %> </h2>
+    <h3><%= hits.result.artist_names %> </h3>
+    <img src=<%= hits.result.header_image_thumbnail_url %> >
+    <br>
+    <br>
+    
+    
+
+ <% }) %> 
