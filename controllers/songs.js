@@ -23,11 +23,35 @@ router.get('/dislikes', async(req, res) => {
   res.render('songs/dislikes', { dislikes: dislikes});
 });
 
-
 // GET ROUTE / search
 router.get('/search', (req, res) => {
     res.render('songs/search');
 });
+
+//SHOW ROUTE Favorites / to show individual song on favorites
+router.get('/favorites/:id', async (req, res) => {
+    let favSong = await db.favorite.findOne ({
+      where: { id: req.params.id }
+    })
+    favSong = favSong.toJSON();
+    console.log('===== this is the favorites show route =====');
+    console.log(favSong);
+
+    res.render('songs/showFav', { favSong: favSong});
+});
+
+//SHOW ROUTE Dislikes / to show individual song on dislikes
+router.get('/dislikes/:id', async (req, res) => {
+  let badSong = await db.dislike.findOne ({
+    where: { id: req.params.id }
+  })
+  badSong = badSong.toJSON();
+  console.log('===== this is the dislikes show route =====');
+  console.log(badSong);
+
+  res.render('songs/showDis', { badSong: badSong});
+});
+
 
 //POST ROUTE / results
 router.post('/results', async (req, res) => {
