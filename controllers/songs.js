@@ -5,10 +5,23 @@ const db = require('../models');
 require('dotenv').config();
 const axios = require('axios');
 
-//GET route / songs
-router.get('/', async(req, res) => {
-  let favorites = await db.song.findAll()
-})
+//GET route /songs/favorites
+router.get('/favorites', async(req, res) => {
+  let favorites = await db.favorite.findAll();
+  favorites = favorites.map(f => f.toJSON());
+  console.log(favorites);
+
+  res.render('songs/favorites', { favorites: favorites});
+});
+
+//GET route /songs/favorites
+router.get('/dislikes', async(req, res) => {
+  let dislikes = await db.dislike.findAll();
+  dislikes = dislikes.map(d => d.toJSON());
+  console.log(dislikes);
+
+  res.render('songs/dislikes', { dislikes: dislikes});
+});
 
 
 // GET ROUTE / search
@@ -50,6 +63,7 @@ router.post('/new/favorites', async (req, res) => {
     userId: parseInt(req.body.userId)
   })
   console.log(favSong.toJSON());
+  res.redirect('/songs/favorites')
 });
 
 //POST ROUTE for adding dislikes
@@ -64,6 +78,7 @@ router.post('/new/dislikes', async (req, res) => {
     userId: parseInt(req.body.userId)
   })
   console.log(badSong.toJSON());
+  res.redirect('/songs/dislikes')
 });
 
 
