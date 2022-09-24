@@ -45,16 +45,19 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-//access to all of our auth routes GET /auth/login, GET /auth/signup, POST routes
-app.use('/auth', require('./controllers/auth'));
-app.use('/songs', isLoggedIn, require('./controllers/songs'));
-
 
 // Add this above /auth controllers
 app.get('/profile', isLoggedIn, (req, res) => {
   const { id, name, email } = req.user.get(); 
   res.render('profile', { id, name, email });
 });
+
+//access to all of our auth routes GET /auth/login, GET /auth/signup, POST routes
+app.use('/auth', require('./controllers/auth'));
+app.use('/songs', isLoggedIn, require('./controllers/songs'));
+
+
+
 
 
 
