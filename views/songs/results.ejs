@@ -10,13 +10,21 @@
     <h2><%= song.result.full_title %> </h2>
     <h3><%= song.result.artist_names %> </h3>
     <img src=<%= song.result.header_image_thumbnail_url %> >
-    <form method="POST" action="/search/new">
-      <input type="text" value="<%= song.result.full_title %> " name="title" hidden>
-      <input type="text" value="<%= song.result.artist_names %> " name="artist" hidden>
-      <input type="text" value="<%= song.result.header_image_thumbnail_url %> " name="imgURL" hidden>
-      <input type="text" value="<%= currentUser.id %> " name="userId" hidden>
-      <button type="submit">Add Song</button>
-      
+    <form method="POST" action="/songs/new/favorites">
+        <input type="text" value="<%= song.result.full_title %> " name="title" hidden>
+        <input type="text" value="<%= song.result.artist_names %> " name="artist" hidden>
+        <input type="text" value="<%= song.result.header_image_thumbnail_url %> " name="imageURL" hidden>
+        <input type="text" value="<%= song.result.url %> " name="lyrics" hidden>
+        <input type="text" value="<%= currentUser.id %> " name="userId" hidden>
+        <button type="submit">Add to Favorites</button>
+    </form>
+    <form method="POST" action="/songs/new/dislikes">
+        <input type="text" value="<%= song.result.full_title %> " name="title" hidden>
+        <input type="text" value="<%= song.result.artist_names %> " name="artist" hidden>
+        <input type="text" value="<%= song.result.header_image_thumbnail_url %> " name="imageURL" hidden>
+        <input type="text" value="<%= song.result.url %> " name="lyrics" hidden>
+        <input type="text" value="<%= currentUser.id %> " name="userId" hidden>
+        <button type="submit">Add to Dislikes</button>
     </form>
     <br>
     <br>

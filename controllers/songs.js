@@ -5,6 +5,12 @@ const db = require('../models');
 require('dotenv').config();
 const axios = require('axios');
 
+//GET route / songs
+router.get('/', async(req, res) => {
+  let favorites = await db.song.findAll()
+})
+
+
 // GET ROUTE / search
 router.get('/search', (req, res) => {
     res.render('songs/search');
@@ -31,6 +37,34 @@ router.post('/results', async (req, res) => {
   // render the songs/results page 
   res.render('songs/results', { hits: response.data.response.hits });
 })
+
+//POST ROUTE for adding favorites
+router.post('/new/favorites', async (req, res) => {
+  console.log('******* /new/favorites', req.body);
+
+  const favSong = await db.favorite.create({
+    title: req.body.title,
+    artist: req.body.artist,
+    imageURL: req.body.imageURL,
+    lyrics: req.body.lyrics,
+    userId: parseInt(req.body.userId)
+  })
+  console.log(favSong.toJSON());
+});
+
+//POST ROUTE for adding dislikes
+router.post('/new/dislikes', async (req, res) => {
+  console.log('******* /new/dislikes', req.body);
+
+  const badSong = await db.dislike.create({
+    title: req.body.title,
+    artist: req.body.artist,
+    imageURL: req.body.imageURL,
+    lyrics: req.body.lyrics,
+    userId: parseInt(req.body.userId)
+  })
+  console.log(badSong.toJSON());
+});
 
 
 
