@@ -1,5 +1,9 @@
 <h1>Here is a list of my favorite songs!</h1>
 
+<form method="get" action="/songs/search">
+    <button type="submit">Back to Search Page</button>
+  </form>
+
 <% favorites.forEach(f => { %>
     <h2><%= f.title %> </h2>
     <h3><%= f.artist %> </h3>

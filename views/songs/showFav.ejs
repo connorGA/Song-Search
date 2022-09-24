@@ -1,5 +1,9 @@
 <h1>This shows 1 song</h1>
 
+<form method="get" action="/songs/favorites">
+    <button type="submit">Back to favorites</button>
+</form>
+
 <h2><%= favSong.title %> </h2>
 <h3><%= favSong.artist %> </h3>
 <img src=<%= favSong.imageURL %> >

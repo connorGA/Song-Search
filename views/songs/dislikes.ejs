@@ -1,5 +1,9 @@
 <h1>Here is a list of songs I hate!</h1>
 
+<form method="get" action="/songs/search">
+    <button type="submit">Back to Search Page</button>
+  </form>
+
 <% dislikes.forEach(d => { %>
     <h2><%= d.title %> </h2>
     <h3><%= d.artist %> </h3>
