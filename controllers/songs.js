@@ -106,6 +106,29 @@ router.post('/new/dislikes', async (req, res) => {
 });
 
 
+//DELETE ROUTE / favorites
+router.delete('/favorites/:id', async (req, res) => {
+
+  let songsDeleted = await db.favorite.destroy({
+    where: { id: req.params.id }
+  });
+  console.log('==== this is the delete route ====');
+  console.log(' Songs deleted', songsDeleted);
+
+  res.redirect('/songs/favorites');
+});
+
+//DELETE ROUTE / dislikes
+router.delete('/dislikes/:id', async (req, res) => {
+
+  let songsDeleted = await db.dislike.destroy({
+    where: { id: req.params.id }
+  });
+  console.log('==== this is the delete route ====');
+  console.log(' Songs deleted', songsDeleted);
+
+  res.redirect('/songs/dislikes');
+});
 
 
 module.exports = router;
