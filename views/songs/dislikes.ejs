@@ -1,1 +1,9 @@
 <h1>Here is a list of songs I hate!</h1>
+
+<% dislikes.forEach(d => { %>
+    <h2><%= d.title %> </h2>
+    <h3><%= d.artist %> </h3>
+    <img src=<%= d.imageURL %> >
+    <p><%= d.lyrics %> </p>
+    <br>
+<% }) %> 

@@ -1,1 +1,9 @@
 <h1>Here is a list of my favorite songs!</h1>
+
+<% favorites.forEach(f => { %>
+    <h2><%= f.title %> </h2>
+    <h3><%= f.artist %> </h3>
+    <img src=<%= f.imageURL %> >
+    <p><%= f.lyrics %> </p>
+    <br>
+<% }) %> 
