@@ -1,0 +1,8 @@
+<h1>Edit name</h1>
+
+<form method="POST" action="/profile/<%= currentUser.id %>/?_method=PUT">
+    <label>Name</label>
+    <input type="text" name="name" value="<%= currentUser.name %>" >
+    <button type="submit">Update</button>
+
+</form>

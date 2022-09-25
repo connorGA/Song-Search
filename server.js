@@ -52,6 +52,48 @@ app.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile', { id, name, email });
 });
 
+//GET ROUTE for profile edit page
+app.get('/profile/edit/:id', (req, res) => {
+  const { id, name, email } = req.user.get();
+  res.render('edit', { id, name, email });
+  
+})
+
+//GET ROUTE edit page
+app.get('/profile/edit', isLoggedIn, (req, res) => {
+  res.render('edit');
+});
+
+//PUT ROUTE for profile page
+app.put('/profile/:id', isLoggedIn, async (req, res) => {
+  try {
+    const usersUpdated = await db.user.update({
+      email: req.body.email,
+      name: req.body.name
+    }, {
+      where: {
+        id: req.params.id
+      }
+  });
+
+  console.log('********** PUT ROUTE *************');
+  console.log('Users updated', usersUpdated);
+  console.log('***********************');
+
+  // redirect back to the profile page
+  res.redirect('/profile'); // route
+  } catch (error) {
+    console.log('*********************ERROR***********************');
+    console.log(error);
+    console.log('**************************************************');
+    res.render('edit');
+  }
+});
+
+  
+  
+
+
 //access to all of our auth routes GET /auth/login, GET /auth/signup, POST routes
 app.use('/auth', require('./controllers/auth'));
 app.use('/songs', isLoggedIn, require('./controllers/songs'));

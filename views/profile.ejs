@@ -4,6 +4,9 @@
 
 <p>Id: <%= id %></p>
 <p>Name: <%= name %></p>
+<form method="get" action="/profile/edit/:<%=id%>">
+  <button tpye="submit">Edit</button>
+</form>
 <p>Email: <%= email %></p>
 
 
