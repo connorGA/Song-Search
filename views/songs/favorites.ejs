@@ -45,7 +45,8 @@
     <div class="container">
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <% favorites.forEach(f => {  %> 
+        <% favorites.forEach(f => {  %>
+          <% if  (f.userId == currentUser.id) { %>  
             <div class="col">
                 <div class="card shadow-sm">
                 <img class="bd-placeholder-img card-img-top" width="100%" height="300" src="<%= f.imageURL %> ">
@@ -66,7 +67,7 @@
                 </div>
               </div>
             <br>
-        <% }) %> 
+        <% }}) %> 
         
       </div>
     </div>
