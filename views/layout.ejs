@@ -18,7 +18,7 @@
 
    
     <!-- Custom styles for this template -->
-    <link href="css/songs.css" rel="stylesheet">
+    <link href="/css/songs.css" rel="stylesheet">
     
   </head>
   <body>
@@ -52,15 +52,15 @@
               <a href="/songs/favorites">Favorites</a>
               <a href="/songs/dislikes">Dislikes</a>
               <a href="/songs/search">Search</a>
-              <div class="d-flex flex-row-reverse">
+              
                 <% if (!currentUser) {%>
-                    <div class="p-2"><a href="/auth/signup">Signup</a></div>
-                    <div class="p-2"><a href="/auth/login">Login</a></div>
+                    <a href="/auth/signup">Signup</a>
+                    <a href="/auth/login">Login</a>
                 <% } else { %>
-                    <div class="p-2"><a href="/auth/logout">Logout</a></div>
-                    <div class="p-2"><a href="/profile">Profile</a></div>
+                    <a href="/profile">Profile</a>
+                    <a href="/auth/logout">Logout</a>
                 <% } %>
-                </div>
+                
             </div>
     
     </div>
