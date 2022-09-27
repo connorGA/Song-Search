@@ -2,15 +2,27 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 999;
   
   
 }
+.album {
+  background-color: rgb(33, 33, 33);
+}
+body {
+  background-color: rgb(33, 33, 33);
+}
 
+h1 {
+  color: white;
+}
 .navbar-links {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: clip;
+  
 }
+
 
 .container {
   justify-content: center;
