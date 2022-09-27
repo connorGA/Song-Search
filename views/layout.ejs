@@ -46,19 +46,19 @@
     <div class="container">
       <a href="/" class="navbar-brand d-flex align-items-center">
         
-        <strong>SongSearch</strong>
+        <strong style="color: rgb(248, 201, 127);">SongSearch</strong>
       </a>
             <div class="navbar-links">
-              <a href="/songs/favorites">Favorites</a>
-              <a href="/songs/dislikes">Dislikes</a>
-              <a href="/songs/search">Search</a>
+              <a style="color: rgb(124, 35, 208); text-decoration: none; font-weight: 700; margin-right: 30px; margin-left: 30px;" href="/songs/favorites">Favorites</a>
+              <a style="color: rgb(124, 35, 208); text-decoration: none; font-weight: 700; margin-right: 30px;" href="/songs/dislikes">Dislikes</a>
+              <a style="color: rgb(124, 35, 208); text-decoration: none; font-weight: 700; margin-right: 30px;" href="/songs/search">Search</a>
               
                 <% if (!currentUser) {%>
-                    <a href="/auth/signup">Signup</a>
-                    <a href="/auth/login">Login</a>
+                    <a style="color: rgb(124, 35, 208); text-decoration: none; font-weight: 700; margin-right: 30px;" href="/auth/signup">Signup</a>
+                    <a style="color: rgb(124, 35, 208); text-decoration: none; font-weight: 700;" href="/auth/login">Login</a>
                 <% } else { %>
-                    <a href="/profile">Profile</a>
-                    <a href="/auth/logout">Logout</a>
+                    <a style="color: rgb(124, 35, 208); text-decoration: none; font-weight: 700; margin-right: 30px;" href="/profile">Profile</a>
+                    <a style="color: rgb(124, 35, 208); text-decoration: none; font-weight: 700;" href="/auth/logout">Logout</a>
                 <% } %>
                 
             </div>
