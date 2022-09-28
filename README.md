@@ -17,7 +17,8 @@ nmp install
 3. As a user, I want to be able to search for songs I hate and keep track of them in a bad songs playlist.
 
 ## Wireframes
-
+![](/images/Song%20Search1.drawio.pdf)
+![](/images/Song%20Search2.drawio.pdf)
 ## Application Routes
 | Method | Path | Location | Purpose |
 | ------ | ---------------- | -------------- | ------------------- |
