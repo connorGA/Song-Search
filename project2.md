@@ -14,8 +14,8 @@ Fork & Clone this repo.
 1. Song Search 
     API: https://rapidapi.com/brianiswu/api/genius/
     User Story:  As a music lover
-                 I want to be able to find songs based on the lyrics or song names
-                 So that I can find songs easily and keep track of my favorite songs.
+                 I want to be able to find songs based on the artist or song names
+                 so that I can find songs easily and keep track of my favorite songs.
 2. Football Frenzy 
     API: https://rapidapi.com/api-sports/api/api-football/
     User Story: As a football fan
