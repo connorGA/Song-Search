@@ -48,10 +48,9 @@ router.post('/signup', async (req, res) => {
     } else {
       // Send back email already exists
       req.flash('error', 'Email already exists');
-      res.redirect('/auth/signup'); // redirect the user back to sign up page to try again
+      res.redirect('/auth/signup'); 
     }
   } catch (error) {
-        // There was an error that came back; therefore, we just have the user try again
         console.log('**************Error');
         console.log(error);
         req.flash('error', 'Either email or password is incorrect. Please try again.');

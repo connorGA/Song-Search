@@ -98,6 +98,8 @@ app.put('/profile/:id', isLoggedIn, async (req, res) => {
 app.use('/auth', require('./controllers/auth'));
 app.use('/songs', isLoggedIn, require('./controllers/songs'));
 
+
+//GET Route for 404 page
 app.get('*', (req, res) => {
   res.status(404).render('404')
 })
