@@ -28,6 +28,9 @@ npx sequelize-cli db:migrate
 2. As a user, I want to be able to search for my favorite songs and add them to a playlist of songs I like.
 3. As a user, I want to be able to search for songs I hate and keep track of them in a bad songs playlist.
 
+## Glimpse
+![](/images/Screen%20Shot%202022-10-11%20at%209.23.34%20PM.png)
+
 ## Wireframes
 ![](/images/Screen%20Shot%202022-09-27%20at%206.28.06%20PM.png)
 ![](/images/Screen%20Shot%202022-09-27%20at%206.28.29%20PM.png)
