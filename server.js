@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const layouts = require('express-ejs-layouts');
 const app = express();
+const timeout = require('connect-timeout')
 const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('./config/ppConfig');
@@ -22,6 +23,8 @@ app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(layouts);
+
+app.use(timeout(30000));
 
 app.use(session({
   secret: SECRET_SESSION,    // What we actually will be giving the user on our site as a session cookie
@@ -103,6 +106,14 @@ app.use('/songs', isLoggedIn, require('./controllers/songs'));
 app.get('*', (req, res) => {
   res.status(404).render('404')
 })
+
+
+
+// this function will be called if the timeout is exceeded
+app.use(function (req, res, next) {
+ 
+  res.status(503).send('Request timed out.');
+});
 
 
 

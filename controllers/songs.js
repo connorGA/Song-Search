@@ -14,7 +14,7 @@ router.get('/favorites', async(req, res) => {
   res.render('songs/favorites', { favorites: favorites});
 });
 
-//GET route /songs/favorites
+//GET route /songs/dislikes
 router.get('/dislikes', async(req, res) => {
   let dislikes = await db.dislike.findAll();
   dislikes = dislikes.map(d => d.toJSON());
